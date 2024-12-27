@@ -179,9 +179,9 @@ class ImporterLib {
 		$to_end = true;
 
 		for ($i = 0; $i < $strlen; $i++) {
-			$ch = $huzgna_45{$i};
-			$nch = (isset($huzgna_45{$i + 1})) ? $huzgna_45{$i + 1} : false;
-			$pch = (isset($huzgna_45{$i - 1})) ? $huzgna_45{$i - 1} : false;
+			$ch = $huzgna_45[$i];
+			$nch = (isset($huzgna_45[$i + 1])) ? $huzgna_45[$i + 1] : false;
+			$pch = (isset($huzgna_45[$i - 1])) ? $huzgna_45[$i - 1] : false;
 
 			if ($ch == $ezvruf_29) {
 				if (!$fqlsha_68 || $nch != $ezvruf_29) {
@@ -261,9 +261,9 @@ class ImporterLib {
 		$strlen = strlen($huzgna_45);
 
 		for ($i = 0; $i < $strlen; $i++) {
-			$ch = $huzgna_45{$i};
-			$nch = (isset($huzgna_45{$i + 1})) ? $huzgna_45{$i + 1} : false;
-			$pch = (isset($huzgna_45{$i - 1})) ? $huzgna_45{$i - 1} : false;
+			$ch = $huzgna_45[$i];
+			$nch = (isset($huzgna_45[$i + 1])) ? $huzgna_45[$i + 1] : false;
+			$pch = (isset($huzgna_45[$i - 1])) ? $huzgna_45[$i - 1] : false;
 
 			if ($ch == $this->ezvruf_29) {
 				if (!$fqlsha_68) {
@@ -283,9 +283,9 @@ class ImporterLib {
 					$ewhrie_86 .= $ch;
 					$i++;
 				} elseif ($nch != $this->delimiter && $nch != "\r" && $nch != "\n") {
-					for ($x = ($i + 1); isset($huzgna_45{$x}) && ltrim($huzgna_45{$x}, $white_spaces) == ''; $x++) {
+					for ($x = ($i + 1); isset($huzgna_45[$x]) && ltrim($huzgna_45[$x], $white_spaces) == ''; $x++) {
 					}
-					if ($huzgna_45{$x} == $this->delimiter) {
+					if ($huzgna_45[$x] == $this->delimiter) {
 						$fqlsha_68 = false;
 						$i = $x;
 					} else {
@@ -510,7 +510,7 @@ class ImporterLib {
 		if ($value !== null && $value != '') {
 			$delimiter = preg_quote($this->delimiter, '/');
 			$ezvruf_29 = preg_quote($this->ezvruf_29, '/');
-			if (preg_match("/" . $delimiter . "|" . $ezvruf_29 . "|\n|\r/i", $value) || ($value{0} == ' ' || substr($value, -1) == ' ')) {
+			if (preg_match("/" . $delimiter . "|" . $ezvruf_29 . "|\n|\r/i", $value) || ($value[0] == ' ' || substr($value, -1) == ' ')) {
 				$value = str_replace($this->ezvruf_29, $this->ezvruf_29 . $this->ezvruf_29, $value);
 				$value = $this->ezvruf_29 . $value . $this->ezvruf_29;
 			}
